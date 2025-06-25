@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Sulaimon Yusuf | Business Analyst</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+        
+        .header-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .header-content p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 15px 0;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        section:last-child {
+            border-bottom: none;
+        }
+        
+        h2 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2rem;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 15px auto;
+        }
+        
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .executive-summary p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .skills-cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-top: 30px;
+    }
+
+    @media (min-width: 1200px) {
+        .skills-cards-container {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+
+    .project-filters {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 30px;
+    }
+
+    .filter-btn {
+        padding: 8px 16px;
+        border: 1px solid var(--secondary-color);
+        background: white;
+        color: var(--secondary-color);
+        border-radius: 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 0.9rem;
+    }
+
+    .filter-btn:hover, .filter-btn.active {
+        background: var(--secondary-color);
+        color: white;
+    }
+
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+    }
+
+    .project-card {
+        background: white;
+        border-radius: 8px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #eee;
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .project-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 15px;
+    }
+
+    .tag {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+        border-radius: 20px;
+        background: #f0f0f0;
+    }
+
+    /* Tag Colors */
+    .tag.salesforce { background: #00A1E0; color: white; }
+    .tag.uat { background: #4CAF50; color: white; }
+    .tag.process-mapping { background: #9C27B0; color: white; }
+    .tag.power-apps { background: #3F51B5; color: white; }
+    .tag.ams { background: #FF9800; color: white; }
+    .tag.documentation { background: #607D8B; color: white; }
+    .tag.requirements-gathering { background: #E91E63; color: white; }
+    .tag.testing { background: #009688; color: white; }
+    .tag.communication { background: #795548; color: white; }
+    .tag.stakeholder-management { background: #2196F3; color: white; }
+    .tag.user-experience { background: #FF5722; color: white; }
+
+    .project-card h3 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+        font-size: 1.2rem;
+    }
+
+    .project-card p {
+        margin-bottom: 20px;
+        color: var(--text-color);
+    }
+
+    .case-study-link {
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+    }
+
+    .case-study-link:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .projects-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .project-filters {
+            justify-content: flex-start;
+        }
+    }
+
+
+
+    .skill-card {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid #e0e0e0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .skill-card-header {
+        background-color: var(--secondary-color);
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .skill-icon {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+
+    .skill-card-header h3 {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    .skill-card-body {
+        padding: 20px;
+        background-color: white;
+        flex-grow: 1;
+    }
+
+    .skill-card-body p {
+        margin: 0;
+        color: var(--text-color);
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+        .skills-cards-container {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .tools-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 30px;
+        justify-items: center;
+    }
+
+    .tool-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        transition: transform 0.3s ease;
+    }
+
+    .tool-item:hover {
+        transform: translateY(-5px);
+    }
+
+    .tool-icon {
+        width: 80px;
+        height: 80px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        padding: 15px;
+    }
+
+    .tool-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .tool-item span {
+        text-align: center;
+        font-weight: 500;
+        color: var(--text-color);
+    }
+
+    @media (max-width: 768px) {
+        .tools-container {
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 20px;
+        }
+        
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            padding: 10px;
+        }
+    }
+
+    .certifications-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 25px;
+    }
+
+    .certification-card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 25px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        border: 1px solid #e0e0e0;
+        transition: transform 0.3s ease;
+    }
+
+    .certification-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .certification-card.highlight {
+        border-left: 5px solid #E04B4A; /* IIBA red */
+        background-color: #FFF9F9;
+    }
+
+    .certification-header {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 15px;
+        align-items: center;
+    }
+
+    .certification-logo {
+        height: 50px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    .certification-card h3 {
+        color: var(--primary-color);
+        margin: 0 0 5px 0;
+        font-size: 1.1rem;
+    }
+
+    .issuer {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    .certification-meta {
+        display: flex;
+        gap: 15px;
+        margin: 15px 0;
+        font-size: 0.9rem;
+        color: var(--text-color);
+    }
+
+    .verification-link {
+        color: var(--secondary-color);
+        text-decoration: none;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 0.9rem;
+    }
+
+    .verification-link:hover {
+        text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+        .certifications-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .certification-header {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .certification-meta {
+            flex-direction: column;
+            gap: 5px;
+        }
+    }
+
+
+
+    
+        
+        .experience-item {
+            margin-bottom: 40px;
+        }
+        
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .job-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        
+        .company {
+            font-style: italic;
+        }
+        
+        .date {
+            color: var(--text-light);
+        }
+        
+        .achievements {
+            margin-top: 15px;
+        }
+        
+        .achievements li {
+            margin-bottom: 8px;
+            list-style-position: inside;
+        }
+        
+        .case-studies {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .case-study {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .case-study:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .case-study img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .case-study-content {
+            padding: 20px;
+        }
+        
+        .case-study h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .tools-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .tool-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100px;
+        }
+        
+        .tool-icon {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            margin-bottom: 10px;
+        }
+        
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .certification {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .certification h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background-color: #f9f9f9;
+            padding: 25px;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            font-size: 60px;
+            color: #eee;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            line-height: 1;
+        }
+        
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 5px 0;
+            }
+            
+            .skills-container, .contact-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .skill-category {
+                flex-basis: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="images/sulaimon.png" alt="Profile Photo" class="profile-image">
+                <h1>Sulaimon Yusuf</h1>
+                <p>Senior Business Analyst | Data-Driven Solutions | Process Optimization</p>
+            </div>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#executive-summary">Summary</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#case-studies">Projects</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <main class="container">
+        <section id="executive-summary" class="executive-summary">
+            <h2>About Me</h2>
+            <div class="section-content">
+                <p>
+                    As a Senior Business Analyst with over a decade of experience
+                    in the IT industry, I specialize in bridging the gap between
+                    business objectives and technical solutions. My passion lies in
+                    understanding intricate processes, identifying critical pain points,
+                    and crafting innovative, data-driven strategies that enhance operational
+                    efficiency and drive tangible business value.
+                </p>
+                <p>
+                    I thrive in dynamic environments, leveraging my expertise in Application
+                    Maintenance Services (AMS) to ensure seamless system functionality and continuous
+                    improvement. My approach is rooted in clear communication, empathetic stakeholder
+                    management, and a commitment to delivering user-centric outcomes that align with
+                    organizational goals.
+                </p>
+                
+            </div>
+        </section>
+
+        <section id="skills" class="core-skills">
+            <h2>Core Skills & Competencies</h2>
+            <div class="section-content">
+                <div class="skills-cards-container">
+                    <!-- Card 1 -->
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                            <h3>Requirements Gathering & Analysis</h3>
+                        </div>
+                        <div class="skill-card-body">
+                            <p>Expert in eliciting, analyzing, and validating diverse business and technical requirements, ensuring comprehensive scope definition.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h3>Process Flow Mapping & Optimization</h3>
+                        </div>
+                        <div class="skill-card-body">
+                            <p>Proficient in current and future state process mapping (BPMN), identifying inefficiencies and opportunities for optimization.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Stakeholder Management</h3>
+                        </div>
+                        <div class="skill-card-body">
+                            <p>Building consensus and fostering collaboration among diverse stakeholders, from end-users to senior leadership.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <h3>Documentation & Specification</h3>
+                        </div>
+                        <div class="skill-card-body">
+                            <p>Creating clear, concise, and comprehensive documentation, including FSDs, user stories, and use cases.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-check-double"></i>
+                            </div>
+                            <h3>Functional Testing & UAT Coordination</h3>
+                        </div>
+                        <div class="skill-card-body">
+                            <p>Designing test cases, executing functional tests, and leading User Acceptance Testing (UAT) cycles to ensure solution quality.</p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h3>Communication & Translation</h3>
+                        </div>
+                        <div class="skill-card-body">
+                            <p>Bridging the communication gap between business and technical teams, translating complex concepts effectively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="work-experience">
+            <h2>Work Experience</h2>
+            <div class="section-content">
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <span class="job-title">Senior Business Analyst</span>
+                        </div>
+                        <div class="date">Jan 2020 - Present</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Led requirements gathering for a CRM implementation project,
+                            resulting in an improvement in sales team productivity
+                            and $2M annual revenue increase.
+                        </li>
+                        <li>Reduced operational costs by identifying inefficiencies
+                            in order processing workflows and implementing automated solutions.
+                        </li>
+                        <li>Facilitated workshops with stakeholders across departments
+                            to define business needs for a new ERP system.
+                        </li>
+                        <li>Created comprehensive documentation including BRDs, FRDs,
+                            and user stories that reduced development rework.
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div>
+                            <span class="job-title">Business Analyst</span>
+                        </div>
+                        <div class="date">Mar 2016 - Dec 2019</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Analyzed customer data to identify trends that informed a
+                            new product strategy, contributing to growth in customer acquisition.
+                        </li>
+                        <li>Implemented a new reporting system that reduced report generation
+                            time from 8 hours to 30 minutes weekly.
+                        </li>
+                        <li>Collaborated with IT to develop a mobile banking app that
+                            increased customer engagement by 35% within 6 months of launch.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="case-studies" class="project-highlights">
+        <h2>Featured Projects</h2>
+        <div class="section-content">
+            <!-- Filter Buttons -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="salesforce">Salesforce</button>
+                <button class="filter-btn" data-filter="uat">UAT</button>
+                <button class="filter-btn" data-filter="process-mapping">Process Mapping</button>
+                <button class="filter-btn" data-filter="power-apps">Power Apps</button>
+                <button class="filter-btn" data-filter="ams">AMS</button>
+                <button class="filter-btn" data-filter="documentation">Documentation</button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card" data-categories="salesforce,uat,process-mapping">
+                    <div class="project-tags">
+                        <span class="tag salesforce">Salesforce</span>
+                        <span class="tag uat">UAT</span>
+                        <span class="tag process-mapping">Process Mapping</span>
+                    </div>
+                    <h3>CRM Migration to Salesforce Lightning</h3>
+                    <p>Led the business analysis for migrating a legacy CRM system to Salesforce Lightning, enhancing sales efficiency and reporting capabilities for 500+ users.</p>
+                    <a href="#" class="case-study-link">View Case Study →</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card" data-categories="power-apps,process-mapping,documentation,uat">
+                    <div class="project-tags">
+                        <span class="tag power-apps">Power Apps</span>
+                        <span class="tag process-mapping">Process Mapping</span>
+                        <span class="tag documentation">Documentation</span>
+                        <span class="tag uat">UAT</span>
+                    </div>
+                    <h3>Automated Employee Onboarding with Power Apps</h3>
+                    <p>Designed and implemented an automated onboarding solution using Microsoft Power Apps and Power Automate, reducing manual processing time by 40%.</p>
+                    <a href="#" class="case-study-link">View Case Study →</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card" data-categories="ams,requirements-gathering,testing,documentation">
+                    <div class="project-tags">
+                        <span class="tag ams">AMS</span>
+                        <span class="tag requirements-gathering">Requirements</span>
+                        <span class="tag testing">Testing</span>
+                        <span class="tag documentation">Documentation</span>
+                    </div>
+                    <h3>ERP Module Enhancement (AMS)</h3>
+                    <p>Provided ongoing business analysis support for a critical ERP module within an Application Maintenance Services (AMS) team, prioritizing defects and enhancements based on business impact.</p>
+                    <a href="#" class="case-study-link">View Case Study →</a>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card" data-categories="process-mapping,documentation,communication">
+                    <div class="project-tags">
+                        <span class="tag process-mapping">Process Mapping</span>
+                        <span class="tag documentation">Documentation</span>
+                        <span class="tag communication">Communication</span>
+                    </div>
+                    <h3>Customer Feedback System Redesign</h3>
+                    <p>Redesigned and documented a new customer feedback collection and analysis system, improving data insights and response times.</p>
+                    <a href="#" class="case-study-link">View Case Study →</a>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card" data-categories="stakeholder-management,documentation,process-mapping">
+                    <div class="project-tags">
+                        <span class="tag stakeholder-management">Stakeholder Mgmt</span>
+                        <span class="tag documentation">Documentation</span>
+                        <span class="tag process-mapping">Process Mapping</span>
+                    </div>
+                    <h3>Data Governance Initiative</h3>
+                    <p>Facilitated workshops and developed requirements for a cross-departmental data governance framework, ensuring data quality and compliance.</p>
+                    <a href="#" class="case-study-link">View Case Study →</a>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card" data-categories="uat,user-experience,documentation">
+                    <div class="project-tags">
+                        <span class="tag uat">UAT</span>
+                        <span class="tag user-experience">User Experience</span>
+                        <span class="tag documentation">Documentation</span>
+                    </div>
+                    <h3>Supplier Portal UX/UI Improvement</h3>
+                    <p>Analyzed user feedback and designed improved user interfaces for a supplier management portal, increasing user adoption and reducing support calls.</p>
+                    <a href="#" class="case-study-link">View Case Study →</a>
+                </div>
+            </div>
+        </div>
+        </section>
+
+        <section id="tools" class="tools-technologies">
+                <h2>Tech Stack & Tools</h2>
+                <div class="section-content">
+            <div class="tools-container">
+
+                <div class="tool-item">
+                <div class="tool-icon">
+                    <i class="fas fa-building fa-2x"></i> <!-- closest to Dynamics 365 -->
+                </div>
+                <span>Microsoft Dynamics 365</span>
+                </div>
+
+                <div class="tool-item">
+                <div class="tool-icon">
+                    <i class="fas fa-cubes fa-2x"></i> <!-- generic for Power Apps -->
+                </div>
+                <span>Power Apps</span>
+                </div>
+
+                <div class="tool-item">
+                <div class="tool-icon">
+                    <i class="fab fa-salesforce fa-2x"></i> <!-- FA doesn't support Salesforce directly -->
+                </div>
+                <span>Salesforce</span>
+                </div>
+
+                <div class="tool-item">
+                <div class="tool-icon">
+                    <i class="fab fa-jira fa-2x"></i> <!-- FA doesn’t support Jira either -->
+                </div>
+                <span>Jira</span>
+                </div>
+
+                <div class="tool-item">
+                <div class="tool-icon">
+                    <i class="fab fa-azure fa-2x"></i> <!-- unofficial: use generic cloud -->
+                </div>
+                <span>Azure DevOps</span>
+                </div>
+
+                <div class="tool-item">
+                <div class="tool-icon">
+                    <i class="fas fa-project-diagram fa-2x"></i> <!-- for Visio -->
+                </div>
+                <span>Visio</span>
+                </div>
+
+                <div class="tool-item">
+                <div class="tool-icon">
+                    <i class="fas fa-network-wired fa-2x"></i> <!-- for Lucidchart -->
+                </div>
+                <span>Lucidchart</span>
+                </div>
+
+                <div class="tool-item">
+                <div class="tool-icon">
+                    <i class="fas fa-database fa-2x"></i> <!-- SQL -->
+                </div>
+                <span>SQL</span>
+                </div>
+
+                <div class="tool-item">
+                <div class="tool-icon">
+                    <i class="fas fa-cloud fa-2x"></i> <!-- Azure -->
+                </div>
+                <span>Microsoft Azure</span>
+                </div>
+
+            </div>
+            </div>
+        </section>
+        
+        <section id="certifications" class="certifications-training">
+            <h2>Certifications</h2>
+            <div class="section-content">
+                <div class="certifications-grid">
+                    <!-- CBAP Certification -->
+                    <div class="certification-card highlight">
+                        <div class="certification-header">
+                            <img src="images/iiba-cbap-logo.svg" 
+                                alt="CBAP Certification" class="certification-logo">
+                            <div>
+                                <h3>CBAP® (Certified Business Analysis Professional)</h3>
+                                <p class="issuer">International Institute of Business Analysis (IIBA®)</p>
+                            </div>
+                        </div>
+                        <!-- <div class="certification-body">
+                            <div class="certification-meta">
+                                <span class="date">Earned: [Month Year]</span>
+                                <span class="credential-id">ID: [Your-CBAP-ID]</span>
+                            </div>
+                            <a href="https://www.iiba.org/certification/core-business-analysis-certifications/CBAP/" 
+                            target="_blank" 
+                            class="verification-link">
+                            Verify Certification <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div> -->
+                    </div>
+
+                    <!-- PMP Certification -->
+                    <div class="certification-card">
+                        <div class="certification-header">
+                            <img src="images/pmi-logo.svg" 
+                                alt="PMP Certification" class="certification-logo">
+                            <div>
+                                <h3>PMP® (Project Management Professional)</h3>
+                                <p class="issuer">Project Management Institute (PMI®)</p>
+                            </div>
+                        </div>
+                        <!-- <div class="certification-body">
+                            <div class="certification-meta">
+                                <span class="date">Earned: [Month Year]</span>
+                                <span class="credential-id">ID: [Your-PMP-ID]</span>
+                            </div>
+                            <a href="https://www.pmi.org/certifications/project-management-pmp" 
+                            target="_blank" 
+                            class="verification-link">
+                            Verify Certification <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div> -->
+                    </div>
+
+                    <!-- Salesforce Administrator -->
+                    <div class="certification-card">
+                        <div class="certification-header">
+                            <img src="https://img.icons8.com/color/96/salesforce.png" 
+                                alt="Salesforce Certification" class="certification-logo">
+                            <div>
+                                <h3>Salesforce Administrator</h3>
+                                <p class="issuer">Salesforce</p>
+                            </div>
+                        </div>
+                        <!-- <div class="certification-body">
+                            <div class="certification-meta">
+                                <span class="date">Earned: [Month Year]</span>
+                                <span class="credential-id">ID: [Your-Salesforce-ID]</span>
+                            </div>
+                            <a href="https://trailhead.salesforce.com/credentials/certification-detail-print?searchString=2Ho5B000000L1AfSAK" 
+                            target="_blank" 
+                            class="verification-link">
+                            Verify Certification <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div> -->
+                    </div>
+
+                    <!-- Power Platform App Maker -->
+                    <div class="certification-card">
+                        <div class="certification-header">
+                            <img src="https://img.icons8.com/color/96/microsoft.png" 
+                                alt="Microsoft Certification" class="certification-logo">
+                            <div>
+                                <h3>Microsoft Certified: Power Platform App Maker Associate</h3>
+                                <p class="issuer">Microsoft</p>
+                            </div>
+                        </div>
+                        <!-- <div class="certification-body">
+                            <div class="certification-meta">
+                                <span class="date">Earned: [Month Year]</span>
+                                <span class="credential-id">ID: [Your-MS-ID]</span>
+                            </div>
+                            <a href="https://learn.microsoft.com/en-us/certifications/power-platform-app-maker/" 
+                            target="_blank" 
+                            class="verification-link">
+                            Verify Certification <i class="fas fa-external-link-alt"></i>
+                            </a>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimonials" class="testimonials-section">
+            <h2>Testimonials</h2>
+            <div class="section-content">
+                <div class="testimonials">
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>Sulaimon's ability to translate complex business needs into clear
+                                technical requirements was instrumental in the success of our
+                                CRM implementation. His attention to detail and stakeholder management
+                                skills are exceptional.
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <p>— Sarah Johnson, Director of Sales</p>
+                        </div>
+                    </div>
+                    <div class="testimonial">
+                        <div class="testimonial-content">
+                            <p>Working with Sulaimon on our process automation project was a pleasure.
+                                He identified opportunities we hadn't considered and delivered
+                                solutions that significantly improved our operational efficiency.
+                            </p>
+                        </div>
+                        <div class="testimonial-author">
+                            <p>— Michael Chen, COO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="contact-information">
+            <h2>Contact Information</h2>
+            <div class="section-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">✉</div>
+                        <div>
+                            <h3>Email:</h3>
+                            <p><a href="mailto:ajila03@gmail.com">ajila03@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h3>Phone:</h3>
+                            <p>(514) 402-6609</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🔗</div>
+                        <div>
+                            <h3>LinkedIn:</h3>
+                            <p><a href="https://linkedin.com/in/sulaimon-yusuf" target="_blank">linkedin.com/in/sulaimon-yusuf</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h3>Location:</h3>
+                            <p>Montreal, QC, Canada</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Sulaimon Yusuf - Business Analyst. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetElement.offsetTop - 70,
+                    behavior: 'smooth'
+                });
+                
+                // Update URL without page reload
+                history.pushState(null, null, targetId);
+            });
+        });
+        
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        function animateSkillBars() {
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+        
+        // Intersection Observer to trigger animations when elements come into view
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.id === 'skills') {
+                        animateSkillBars();
+                    }
+                    // Add more animations for other sections if needed
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+        
+        // Print-friendly version
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'p') {
+                document.body.classList.add('print-mode');
+                window.print();
+                setTimeout(() => {
+                    document.body.classList.remove('print-mode');
+                }, 1000);
+            }
+        });
+
+
+        // Filtering functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const filterValue = button.dataset.filter;
+
+                // Filter projects
+                projectCards.forEach(card => {
+                    if (filterValue === 'all' || card.dataset.categories.includes(filterValue)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    });
+    </script>
+
+</body>
+</html>
